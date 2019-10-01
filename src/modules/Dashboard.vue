@@ -1,12 +1,14 @@
 <template>
   <div>
     <div class="jumbotron">
-      <h1>Dashboard</h1>
+      <h1 >Dashboard</h1>
     </div>
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <center>
-          <b-card-img id="image" :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+        <br>
+       <b-img :src="require('assets/mine.png')" rounded="circle"  alt="Circle image" id="userIcon"></b-img>
+
           <b-row no-gutters>
             <b-card-body>
               <h1>Hi! {{username}}</h1>
@@ -31,6 +33,12 @@
 #image {
   width: 250px;
   height: 220px;
+   
+}
+#userIcon{
+  height:160px;
+  width:150px;
+
 }
 </style>
 

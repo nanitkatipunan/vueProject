@@ -32,7 +32,7 @@
             >
           </div>
           <br>
-          <button id="btnLogin" class="btn btn-primary" @click="submit">
+          <button id="btnLogin" class="btn btn-primary" @click="login">
             <h6>Login</h6>
           </button>
           <br>
@@ -44,6 +44,7 @@
 </template>
 <style scoped lang="scss">
 @import "assets/colors.scss";
+
 
 #username {
   color: whitesmoke !important;
@@ -61,6 +62,7 @@
 </style>
 <script>
 import AUTH from 'services/auth'
+import jquery from 'jquery'
 export default {
   data() {
     AUTH
@@ -70,10 +72,20 @@ export default {
     };
   },
   methods: {
+    
     submit: function(e) {
       e.preventDefault();
       AUTH.login(this.username, this.password)
     },
+    login(){
+      jquery.ajax({
+        url:'http://localhost:3000/user',
+        method:'get',
+        headers:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      })
+    }
 
   }
 };

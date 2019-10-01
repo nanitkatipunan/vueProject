@@ -12,12 +12,13 @@
               id="card1"
               img-top
               tag="article"
-              style="max-width: 70rem;"
+              style="max-width: 40rem;"
               class="mb-2"
             >
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">COURSE</th>
                     <th scope="col">SUBJECT</th>
                     <th scope="col">TEACHER</th>
                     <th scope="col">TIME</th>
@@ -45,10 +46,12 @@
               id="card"
               img-top
               tag="article"
-              style="max-width: 50rem;"
+              style="max-width: 30rem;"
               class="mb-2"
             >
               <b-form-group label-for="input-lg">
+                <label id="Subject">Course:</label>
+                <b-form-input v-model="content.course" id="subject" size="sm"></b-form-input>
                 <label id="Subject">Subject:</label>
                 <b-form-input v-model="content.subject" id="subject" size="sm"></b-form-input>
                 <label id="teacher">Teacher:</label>
@@ -84,6 +87,7 @@ export default {
     return {
       rows: [],
       content: {
+        course: "",
         subject: "",
         teacher: "",
         time: "",
@@ -95,6 +99,7 @@ export default {
   methods: {
     addItem() {
       var object = {
+        course: this.content.course,
         subject: this.content.subject,
         teacher: this.content.teacher,
         time: this.content.time,
@@ -102,6 +107,7 @@ export default {
         room: this.content.room
       };
       this.rows.push(object);
+      this.content.course = "";
       this.content.subject = "";
       this.content.teacher = "";
       this.content.time = "";
